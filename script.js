@@ -88,7 +88,7 @@ function calculateProbability() {
     let VE = document.getElementById('VE').value; // A vontade de se encontrar
     let time = document.getElementById('time').value;
     
-    let totalWeight = 5; // Assumindo pesos iguais para as 5 variáveis
+    let totalWeight = DT + D + CP + CE + VE; // Assumindo pesos iguais para as 5 variáveis
     let probability = (parseInt(DT) + parseInt(D) + parseInt(CP) + parseInt(CE) + parseInt(VE)) / (totalWeight * 5);
     let adjustedProbability = 0.99 * probability; // Ajustando para a escala de 1 a 5
     
