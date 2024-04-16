@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Encontro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Probabilidade de Encontro</h1>
+        <div class="input-group">
+            <label for="DT">Disponibilidade de Tempo:</label>
+            <input type="range" id="DT" min="0" max="2" step="1" value="1">
+        </div>
+        <div class="input-group">
+            <label for="D">Distância:</label>
+            <input type="range" id="D" min="0" max="2" step="1" value="1">
+        </div>
+        <div class="input-group">
+            <label for="CP">Comunicação Prévia:</label>
+            <input type="range" id="CP" min="0" max="2" step="1" value="1">
+        </div>
+        <div class="input-group">
+            <label for="CE">Condições Externas:</label>
+            <input type="range" id="CE" min="0" max="2" step="1" value="1">
+        </div>
+        <button onclick="calculateProbability()">Calcular Probabilidade</button>
+        <div id="result"></div>
+
+        <div class="input-group">
+            <label for="time">Horário do Encontro:</label>
+            <input type="time" id="time" aria-label="Horário do Encontro">
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
