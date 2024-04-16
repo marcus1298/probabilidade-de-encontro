@@ -81,21 +81,36 @@ function getActivityBasedOnTime(time, VE) {
 }
 
 function calculateProbability() {
-    let DT = document.getElementById('DT').value;
-    let D = document.getElementById('D').value;
-    let CP = document.getElementById('CP').value;
-    let CE = document.getElementById('CE').value;
-    let VE = document.getElementById('VE').value; // A vontade de se encontrar
-    let time = document.getElementById('time').value;
+    let DT = parseInt(document.getElementById('DT').value);
+    let D = parseInt(document.getElementById('D').value);
+    let CP = parseInt(document.getElementById('CP').value);
+    let CE = parseInt(document.getElementById('CE').value);
+    let VE = parseInt(document.getElementById('VE').value); // A vontade de se encontrar
     
-    let totalWeight = DT + D + CP + CE + VE; // Assumindo pesos iguais para as 5 variáveis
-    let probability = (parseInt(DT) + parseInt(D) + parseInt(CP) + parseInt(CE) + parseInt(VE)) / (totalWeight * 5);
-    let adjustedProbability = 0.99 * probability; // Ajustando para a escala de 1 a 5
-    
-    let activity = getActivityBasedOnTime(time, VE);
+    // Definindo os pesos para cada variável
+    let pesoDT = 1;
+    let pesoD = 1;
+    let pesoCP = 1;
+    let pesoCE = 1;
+    let pesoVE = 1;
 
-    document.getElementById('result').textContent = `Probabilidade de Encontro: ${(adjustedProbability * 100).toFixed(2)}%. Sugestão de atividade: ${activity}`;
+    // Calculando a soma ponderada dos valores
+    let somaPonderada = (DT * pesoDT) + (D * pesoD) + (CP * pesoCP) + (CE * pesoCE) + (VE * pesoVE);
+
+    // Calculando a soma dos pesos possíveis
+    let somaPesos = (5 * pesoDT) + (5 * pesoD) + (5 * pesoCP) + (5 * pesoCE) + (5 * pesoVE);
+
+    // Calculando a média ponderada
+    let mediaPonderada = somaPonderada / somaPesos;
+
+    // Ajustando a escala para que esteja entre 1% e 99%
+    let adjustedProbability = mediaPonderada * 98 + 1;
+
+    let activity = getActivityBasedOnTime(document.getElementById('time').value, VE);
+
+    document.getElementById('result').textContent = `Probabilidade de Encontro: ${adjustedProbability.toFixed(2)}%. Sugestão de atividade: ${activity}`;
 }
+
 
 // Certifique-se de vincular esta função a um evento no botão calcular
 document.querySelector('button').addEventListener('click', calculateProbability);
