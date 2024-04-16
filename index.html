@@ -1,38 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Encontro</title>
+    <title>Calculadora de Probabilidade de Encontro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Calculadora de Probabilidade de Encontro</h1>
         <div class="input-group">
-            <label for="DT">Disponibilidade de Tempo:</label>
-            <input type="range" id="DT" min="0" max="2" step="1" value="1">
+            <label for="DT">Disponibilidade de Tempo (1 a 5):</label>
+            <input type="range" id="DT" min="1" max="5" value="3">
+            <span class="desc">1: Muito ocupado, 5: Completamente livre</span>
         </div>
         <div class="input-group">
-            <label for="D">Distância:</label>
-            <input type="range" id="D" min="0" max="2" step="1" value="1">
+            <label for="D">Distância (1 a 5):</label>
+            <input type="range" id="D" min="1" max="5" value="3">
+            <span class="desc">1: Muito longe, 5: Muito perto</span>
         </div>
         <div class="input-group">
-            <label for="CP">Comunicação Prévia:</label>
-            <input type="range" id="CP" min="0" max="2" step="1" value="1">
+            <label for="CP">Comunicação Prévia (1 a 5):</label>
+            <input type="range" id="CP" min="1" max="5" value="3">
+            <span class="desc">1: Nenhuma comunicação, 5: Plano bem definido</span>
         </div>
         <div class="input-group">
-            <label for="CE">Condições Externas:</label>
-            <input type="range" id="CE" min="0" max="2" step="1" value="1">
+            <label for="CE">Condições Externas (1 a 5):</label>
+            <input type="range" id="CE" min="1" max="5" value="3">
+            <span class="desc">1: Condições adversas, 5: Condições ideais</span>
+        </div>
+        <div class="input-group">
+            <label for="VE">Vontade de se Encontrar (1 a 5):</label>
+            <input type="range" id="VE" min="1" max="5" value="3">
+            <span class="desc">1: Sem vontade, 5: Muito ansioso para o encontro</span>
+        </div>
+        <div class="input-group">
+            <label for="time">Horário do Encontro:</label>
+            <input type="time" id="time">
         </div>
         <button onclick="calculateProbability()">Calcular Probabilidade</button>
         <div id="result"></div>
-
-        <div class="input-group">
-            <label for="time">Horário do Encontro:</label>
-            <input type="time" id="time" aria-label="Horário do Encontro">
-        </div>
-        
     </div>
     <script src="script.js"></script>
 </body>
